@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.googlecode.protoclipse_1.0.0.jar" id="com.googlecode.protoclipse" version="1.0.0"/>
+</site>
