@@ -105,6 +105,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
 
    <url>
       <update label="Protoclipse Update Site" url="http://protoclipse.googlecode.com/svn/trunk/site/"/>
+      <discovery label="Update site" url="http://protoclipse.googlecode.com/svn/trunk/site/"/>
    </url>
 
    <requires>
