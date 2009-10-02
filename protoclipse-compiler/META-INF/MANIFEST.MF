@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
-Bundle-SymbolicName: com.googlecode.protoclipse;singleton:=true
+Bundle-SymbolicName: com.googlecode.protoclipse.compiler;singleton:=true
 Bundle-Version: 1.0.0
 Bundle-Activator: com.googlecode.protoclipse.Activator
 Require-Bundle: org.eclipse.ui,
