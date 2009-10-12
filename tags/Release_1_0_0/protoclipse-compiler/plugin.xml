@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         id="com.googlecode.protoclipse.protobufBuilder"
+         name="Google Protocol Buffers Builder"
+         point="org.eclipse.core.resources.builders">
+      <builder
+            hasNature="true">
+         <run
+               class="com.googlecode.protoclipse.builder.ProtoBufBuilder">
+         </run>
+      </builder>
+   </extension>
+   <extension
+         id="com.googlecode.protoclipse.protobufNature"
+         name="Google Protocol Buffers Nature"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="com.googlecode.protoclipse.builder.ProtoBufNature">
+         </run>
+      </runtime>
+      <builder
+            id="com.googlecode.protoclipse.protobufBuilder">
+      </builder>
+   </extension>
+   <extension
+         id="com.googlecode.protoclipse.protoBufProblem"
+         name="Google Protocol Buffers Compile Error"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="org.eclipse.core.resources.problemmarker">
+      </super>
+      <persistent
+            value="true">
+      </persistent>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="com.googlecode.protoclipse.preferences.ProtoBufPreferencePage"
+            id="protobufplugin.preferences.ProtoBufPreferencePage"
+            name="%page.name.preferences">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="com.googlecode.protoclipse.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="com.googlecode.protoclipse.commands.toggleNature"
+            name="%command.name.togglenature">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.googlecode.protoclipse.handlers.ToggleNatureHandler"
+            commandId="com.googlecode.protoclipse.commands.toggleNature">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+         <dynamic
+               class="com.googlecode.protoclipse.handlers.ToggleNatureContributionItem"
+               id="ProtoBufPlugin.dynamic2">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activeMenuSelection">
+                  <iterate>
+                     <adapt
+                           type="org.eclipse.core.resources.IProject">
+                     </adapt></iterate>
+               </with>
+            </visibleWhen>
+         </dynamic>
+      </menuContribution>
+   </extension>
+
+</plugin>
